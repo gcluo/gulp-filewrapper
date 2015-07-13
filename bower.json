@@ -1,0 +1,14 @@
+{
+  "name": "tmp",
+  "version": "0.0.1",
+  "keywords": [
+    "sass",
+    "gulp"
+  ],
+  "ignore": [],
+  "dependencies": {
+    "swiper": "^3.0.7",
+    "jquery": "^2.1.4",
+    "normalize-css": "~3.0.3"
+  }
+}

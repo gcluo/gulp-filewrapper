@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>浏览器模拟页面</title>
+  <style>
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0; padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: "Helvetica Neue", "STHeiti", sans-serif;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+      font-size: 12px;
+      font-family: sans-serif;
+    }
+
+    header, section, footer, iframe {
+      width: 100%;
+      display: block;
+    }
+    header {
+      height: 20px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      line-height: 20px;
+    }
+    iframe {
+      -webkit-flex-grow: 1;
+              flex-grow: 1;
+    }
+    footer {
+      height: 60px;
+      background-color: #000;
+    }
+    footer a {
+      line-height: 60px;
+      color: #fff;
+      font-size: 1.8em;
+      text-decoration: none;
+    }
+
+    #catalog {
+      margin: 0 30px;
+      padding: 0;
+    }
+    #catalog > li {
+      display: inline-block;
+    }
+    #catalog > li ~ li {
+      margin-left: 15px;
+    }
+    
+  </style>
+</head>
+<body>
+  <header> status bar</header>
+  <iframe src="app/index.html" frameborder="0" name="app"></iframe>
+  <footer>
+    <!-- <a href="app/index.html" target="app">目录</a> -->
+    <ul id="catalog"></ul>
+  </footer>
+  <script>
+    var c = document.getElementById('catalog');
+    var p = 1, t = 13, s = '';
+
+    s += '<li><a href="app/" target="app">目录</a></li>';
+    s += '<li><a href="app/club.html" target="app">CLUB</a></li>'
+    while (p <= t) {
+      s += '<li><a href="app/art-' + p + '.html" target="app">' + p + '</a></li>';
+      p ++;
+    }
+    c.innerHTML = s;
+  </script>
+</body>
+</html>
